@@ -1,325 +1,232 @@
-export default function AIDirectoryWebsite() {
-  const tools = [
-    {
-      id: 1,
-      name: 'ChatNova AI',
-      category: 'Writing',
-      price: 'Free',
-      description: 'Generate blogs, captions, emails, and long-form content using advanced AI.',
-      image: 'https://via.placeholder.com/80',
-    },
-    {
-      id: 2,
-      name: 'VisionCraft',
-      category: 'Image',
-      price: 'Paid',
-      description: 'Create stunning AI-generated images and graphics instantly.',
-      image: 'https://via.placeholder.com/80',
-    },
-    {
-      id: 3,
-      name: 'CodePilot',
-      category: 'Coding',
-      price: 'Free',
-      description: 'AI coding assistant for developers and startups.',
-      image: 'https://via.placeholder.com/80',
-    },
-    {
-      id: 4,
-      name: 'VideoMind',
-      category: 'Video',
-      price: 'Freemium',
-      description: 'Create short videos, reels, and AI edits in minutes.',
-      image: 'https://via.placeholder.com/80',
-    },
-    {
-      id: 5,
-      name: 'SEO Genius',
-      category: 'SEO',
-      price: 'Paid',
-      description: 'Boost rankings with AI-powered keyword research and optimization.',
-      image: 'https://via.placeholder.com/80',
-    },
-    {
-      id: 6,
-      name: 'AudioWave',
-      category: 'Audio',
-      price: 'Free',
-      description: 'Generate voiceovers, podcasts, and AI music.',
-      image: 'https://via.placeholder.com/80',
-    },
-  ];
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>AI Tools Directory</title>
 
-  return (
-    <div className="min-h-screen bg-slate-100 text-gray-800">
-      {/* Navbar */}
-      <nav className="bg-white shadow-sm border-b border-gray-200 px-8 py-4 flex items-center justify-between sticky top-0 z-50">
-        <div className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center text-white font-bold text-lg shadow-lg">
-            AI
-          </div>
-          <div>
-            <h1 className="font-bold text-2xl text-slate-800">AIXploria</h1>
-            <p className="text-xs text-gray-500">AI Tools Directory</p>
-          </div>
-        </div>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f6fb;
+    color: #222;
+  }
 
-        <div className="hidden md:flex gap-8 font-medium text-sm text-gray-600">
-          <a href="#" className="hover:text-blue-600 transition">Home</a>
-          <a href="#" className="hover:text-blue-600 transition">Categories</a>
-          <a href="#" className="hover:text-blue-600 transition">AI Tutorials</a>
-          <a href="#" className="hover:text-blue-600 transition">Submit Tool</a>
-          <a href="#" className="hover:text-blue-600 transition">Pricing</a>
-        </div>
+  /* NAVBAR */
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    position: sticky;
+    top: 0;
+  }
 
-        <button className="bg-blue-600 hover:bg-blue-700 transition px-5 py-2 rounded-xl text-white font-semibold shadow-md">
-          Sign Up
-        </button>
-      </nav>
+  .logo {
+    font-size: 22px;
+    font-weight: bold;
+    color: #4f46e5;
+  }
 
-      {/* Hero */}
-      <section className="py-16 px-6 text-center bg-gradient-to-br from-blue-50 to-purple-50 border-b border-gray-200">
-        <div className="max-w-4xl mx-auto">
-          <div className="inline-block px-5 py-2 rounded-full bg-white border shadow-sm text-sm font-medium text-purple-700 mb-6">
-            🚀 Discover 10,000+ AI Tools
-          </div>
+  .nav-links a {
+    margin: 0 12px;
+    text-decoration: none;
+    color: #444;
+    font-weight: 500;
+  }
 
-          <h2 className="text-5xl md:text-6xl font-black leading-tight text-slate-900 mb-6">
-            All Free AI Tools in
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"> One Place</span>
-          </h2>
+  .btn {
+    background: #4f46e5;
+    color: white;
+    padding: 8px 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
 
-          <p className="text-lg text-gray-600 leading-8 max-w-3xl mx-auto mb-10">
-            Explore the best AI tools for writing, image generation, coding, SEO, marketing, video editing, and automation.
-            Find powerful AI apps to grow your business and productivity.
-          </p>
+  /* HERO */
+  .hero {
+    text-align: center;
+    padding: 60px 20px;
+    background: linear-gradient(135deg, #eef2ff, #fdf2ff);
+  }
 
-          <div className="flex flex-col md:flex-row gap-4 justify-center">
-            <button className="bg-gradient-to-r from-blue-600 to-purple-600 hover:scale-105 transition-transform text-white px-8 py-4 rounded-2xl font-bold shadow-xl">
-              Explore AI Tools
-            </button>
+  .hero h1 {
+    font-size: 42px;
+    margin-bottom: 10px;
+  }
 
-            <button className="bg-white hover:bg-gray-100 transition px-8 py-4 rounded-2xl font-bold border border-gray-300 shadow-md">
-              Submit Your Tool
-            </button>
-          </div>
-        </div>
-      </section>
+  .hero p {
+    max-width: 700px;
+    margin: auto;
+    color: #555;
+  }
 
-      {/* Search */}
-      <section className="max-w-7xl mx-auto px-6 py-10">
-        <div className="bg-white p-6 rounded-3xl shadow-lg border border-gray-200 flex flex-col md:flex-row gap-4">
-          <input
-            type="text"
-            placeholder="Search AI tools..."
-            className="flex-1 border border-gray-300 rounded-xl px-5 py-4 outline-none focus:ring-2 focus:ring-blue-500"
-          />
+  /* SEARCH */
+  .search-box {
+    display: flex;
+    justify-content: center;
+    margin: 30px auto;
+    gap: 10px;
+  }
 
-          <select className="border border-gray-300 rounded-xl px-5 py-4 outline-none focus:ring-2 focus:ring-purple-500">
-            <option>All Categories</option>
-            <option>Writing</option>
-            <option>Image</option>
-            <option>Video</option>
-            <option>Coding</option>
-            <option>SEO</option>
-          </select>
+  .search-box input, .search-box select {
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+  }
 
-          <button className="bg-slate-900 hover:bg-black text-white px-8 py-4 rounded-xl font-semibold transition">
-            Search
-          </button>
-        </div>
-      </section>
+  /* GRID */
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 20px;
+    padding: 20px 40px;
+  }
 
-      {/* Stats */}
-      <section className="max-w-7xl mx-auto px-6 pb-10">
-        <div className="grid md:grid-cols-4 gap-6">
-          {[
-            ['10K+', 'AI Tools'],
-            ['500+', 'Categories'],
-            ['1M+', 'Monthly Users'],
-            ['24/7', 'Updated Daily'],
-          ].map((item, index) => (
-            <div key={index} className="bg-white rounded-3xl p-8 shadow-md border border-gray-200 text-center hover:-translate-y-1 transition-transform">
-              <h3 className="text-4xl font-black text-blue-600 mb-2">{item[0]}</h3>
-              <p className="text-gray-600 font-medium">{item[1]}</p>
-            </div>
-          ))}
-        </div>
-      </section>
+  .card {
+    background: white;
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+    transition: 0.3s;
+  }
 
-      {/* Categories */}
-      <section className="max-w-7xl mx-auto px-6 py-10">
-        <div className="flex items-center justify-between mb-8">
-          <h2 className="text-3xl font-black">Popular Categories</h2>
-          <button className="text-blue-600 font-semibold">View All →</button>
-        </div>
+  .card:hover {
+    transform: translateY(-5px);
+  }
 
-        <div className="grid grid-cols-2 md:grid-cols-6 gap-5">
-          {['Writing', 'Image', 'Video', 'Coding', 'SEO', 'Marketing'].map((cat, i) => (
-            <div
-              key={i}
-              className="bg-white rounded-2xl p-6 text-center shadow-md border border-gray-200 hover:shadow-xl hover:-translate-y-1 transition-all cursor-pointer"
-            >
-              <div className="w-14 h-14 mx-auto rounded-2xl bg-gradient-to-r from-blue-500 to-purple-500 mb-4"></div>
-              <h3 className="font-bold">{cat}</h3>
-            </div>
-          ))}
-        </div>
-      </section>
+  .tag {
+    font-size: 12px;
+    background: #e0e7ff;
+    color: #4338ca;
+    padding: 4px 8px;
+    border-radius: 5px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
 
-      {/* Tools Grid */}
-      <section className="max-w-7xl mx-auto px-6 py-12">
-        <div className="flex items-center justify-between mb-10">
-          <h2 className="text-4xl font-black text-slate-900">Trending AI Tools</h2>
-          <button className="bg-white border border-gray-300 px-5 py-3 rounded-xl font-semibold shadow-sm hover:bg-gray-50">
-            View All
-          </button>
-        </div>
+  .visit {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 12px;
+    background: #111827;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+  }
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {tools.map((tool) => (
-            <div
-              key={tool.id}
-              className="bg-white rounded-3xl p-6 border border-gray-200 shadow-md hover:shadow-2xl transition-all hover:-translate-y-1"
-            >
-              <div className="flex items-start justify-between mb-5">
-                <div className="flex items-center gap-4">
-                  <img
-                    src={tool.image}
-                    alt={tool.name}
-                    className="w-16 h-16 rounded-2xl border border-gray-200"
-                  />
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 30px;
+    background: #111827;
+    color: white;
+    margin-top: 40px;
+  }
+</style>
+</head>
 
-                  <div>
-                    <h3 className="font-black text-xl text-slate-900">{tool.name}</h3>
-                    <p className="text-sm text-gray-500">{tool.category}</p>
-                  </div>
-                </div>
+<body>
 
-                <span className="bg-green-100 text-green-700 text-xs font-bold px-3 py-1 rounded-full">
-                  {tool.price}
-                </span>
-              </div>
+<!-- NAVBAR -->
+<div class="navbar">
+  <div class="logo">AIXploria</div>
+  <div class="nav-links">
+    <a href="#">Home</a>
+    <a href="#">Categories</a>
+    <a href="#">Tools</a>
+    <a href="#">Submit</a>
+  </div>
+  <button class="btn">Sign Up</button>
+</div>
 
-              <p className="text-gray-600 leading-7 mb-6">
-                {tool.description}
-              </p>
+<!-- HERO -->
+<div class="hero">
+  <h1>All Free AI Tools in One Place</h1>
+  <p>Discover the best AI tools for writing, image generation, coding, SEO, marketing, and automation.</p>
+</div>
 
-              <div className="flex flex-wrap gap-2 mb-6">
-                <span className="bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full">
-                  AI
-                </span>
-                <span className="bg-purple-100 text-purple-700 text-xs px-3 py-1 rounded-full">
-                  Productivity
-                </span>
-                <span className="bg-pink-100 text-pink-700 text-xs px-3 py-1 rounded-full">
-                  SaaS
-                </span>
-              </div>
+<!-- SEARCH -->
+<div class="search-box">
+  <input type="text" id="searchInput" placeholder="Search AI tools..." onkeyup="filterTools()">
+  <select>
+    <option>All Categories</option>
+    <option>Writing</option>
+    <option>Image</option>
+    <option>Coding</option>
+    <option>SEO</option>
+    <option>Video</option>
+  </select>
+</div>
 
-              <div className="flex items-center justify-between">
-                <button className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-5 py-3 rounded-xl font-semibold hover:scale-105 transition-transform shadow-lg">
-                  Visit Website
-                </button>
+<!-- TOOLS GRID -->
+<div class="grid" id="toolGrid">
 
-                <div className="text-yellow-500 font-bold">
-                  ★★★★★
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
+  <div class="card">
+    <span class="tag">Writing</span>
+    <h3>ChatNova AI</h3>
+    <p>Generate blogs, captions, emails, and content using AI.</p>
+    <a href="#" class="visit">Visit</a>
+  </div>
 
-      {/* Newsletter */}
-      <section className="py-20 px-6">
-        <div className="max-w-5xl mx-auto bg-gradient-to-r from-blue-600 to-purple-600 rounded-[40px] p-10 md:p-16 text-white text-center shadow-2xl">
-          <h2 className="text-4xl md:text-5xl font-black mb-6">
-            Stay Updated with New AI Tools
-          </h2>
+  <div class="card">
+    <span class="tag">Image</span>
+    <h3>VisionCraft</h3>
+    <p>Create stunning AI-generated images instantly.</p>
+    <a href="#" class="visit">Visit</a>
+  </div>
 
-          <p className="text-lg opacity-90 max-w-2xl mx-auto mb-10 leading-8">
-            Join thousands of creators, developers, marketers, and entrepreneurs discovering the latest AI innovations.
-          </p>
+  <div class="card">
+    <span class="tag">Coding</span>
+    <h3>CodePilot</h3>
+    <p>AI assistant for developers and programming help.</p>
+    <a href="#" class="visit">Visit</a>
+  </div>
 
-          <div className="max-w-2xl mx-auto flex flex-col md:flex-row gap-4">
-            <input
-              type="email"
-              placeholder="Enter your email"
-              className="flex-1 px-6 py-4 rounded-2xl text-gray-800 outline-none"
-            />
+  <div class="card">
+    <span class="tag">Video</span>
+    <h3>VideoMind</h3>
+    <p>Create reels, shorts, and AI video edits quickly.</p>
+    <a href="#" class="visit">Visit</a>
+  </div>
 
-            <button className="bg-slate-900 hover:bg-black px-8 py-4 rounded-2xl font-bold transition">
-              Subscribe
-            </button>
-          </div>
-        </div>
-      </section>
+  <div class="card">
+    <span class="tag">SEO</span>
+    <h3>SEO Genius</h3>
+    <p>Boost rankings with AI keyword optimization.</p>
+    <a href="#" class="visit">Visit</a>
+  </div>
 
-      {/* Footer */}
-      <footer className="bg-slate-900 text-gray-300 py-16 px-6 mt-10">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-4 gap-10">
-          <div>
-            <div className="flex items-center gap-3 mb-5">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-r from-blue-600 to-purple-600 flex items-center justify-center text-white font-black text-lg">
-                AI
-              </div>
+  <div class="card">
+    <span class="tag">Audio</span>
+    <h3>AudioWave</h3>
+    <p>Generate voiceovers, music, and podcasts with AI.</p>
+    <a href="#" class="visit">Visit</a>
+  </div>
 
-              <div>
-                <h3 className="font-black text-2xl text-white">AIXploria</h3>
-                <p className="text-sm text-gray-400">AI Directory Platform</p>
-              </div>
-            </div>
+</div>
 
-            <p className="text-gray-400 leading-7">
-              Discover the latest AI tools, apps, and software to grow your productivity and business.
-            </p>
-          </div>
+<!-- FOOTER -->
+<footer>
+  © 2026 AI Tools Directory | Built with HTML
+</footer>
 
-          <div>
-            <h4 className="font-bold text-white text-lg mb-5">Quick Links</h4>
-            <ul className="space-y-3 text-gray-400">
-              <li><a href="#" className="hover:text-white">Home</a></li>
-              <li><a href="#" className="hover:text-white">Categories</a></li>
-              <li><a href="#" className="hover:text-white">AI Tools</a></li>
-              <li><a href="#" className="hover:text-white">Pricing</a></li>
-            </ul>
-          </div>
+<!-- JS SEARCH FILTER -->
+<script>
+function filterTools() {
+  let input = document.getElementById("searchInput").value.toLowerCase();
+  let cards = document.querySelectorAll(".card");
 
-          <div>
-            <h4 className="font-bold text-white text-lg mb-5">Categories</h4>
-            <ul className="space-y-3 text-gray-400">
-              <li>Writing AI</li>
-              <li>Image AI</li>
-              <li>Video AI</li>
-              <li>SEO AI</li>
-            </ul>
-          </div>
-
-          <div>
-            <h4 className="font-bold text-white text-lg mb-5">Newsletter</h4>
-            <p className="text-gray-400 mb-5">
-              Subscribe for weekly AI tool updates.
-            </p>
-
-            <div className="flex flex-col gap-3">
-              <input
-                type="email"
-                placeholder="Your email"
-                className="px-4 py-3 rounded-xl bg-slate-800 border border-slate-700 outline-none"
-              />
-
-              <button className="bg-gradient-to-r from-blue-600 to-purple-600 py-3 rounded-xl font-bold">
-                Subscribe
-              </button>
-            </div>
-          </div>
-        </div>
-
-        <div className="border-t border-slate-800 mt-14 pt-8 text-center text-gray-500">
-          © 2026 AIXploria. All rights reserved.
-        </div>
-      </footer>
-    </div>
-  );
+  cards.forEach(card => {
+    let text = card.innerText.toLowerCase();
+    card.style.display = text.includes(input) ? "block" : "none";
+  });
 }
+</script>
+
+</body>
+</html>
